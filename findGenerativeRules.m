@@ -27,12 +27,12 @@ function [gen_rules] = findGenerativeRules(features,labels,param)
 
 	    %Selecting generative rules
             for j=1:size(labels,2)
-                [val,idx] = max(nn.W{2}(j,:));
+                [val,idx] = max(subnet.W{2}(j,:));
                 gen_rules.contro(j,i) = val;
-                gen_rules.W2(j,i) = nn.W{2}(j,idx);
-                gen_rules.W1(j,i,:) = nn.W{1}(idx,:);
-                gen_rules.b1(j,i) = nn.b{1}(idx);
-                gen_rules.b2(j,i) = nn.b{2}(j);
+                gen_rules.W2(j,i) = subnet.W{2}(j,idx);
+                gen_rules.W1(j,i,:) = subnet.W{1}(idx,:);
+                gen_rules.b1(j,i) = subnet.b{1}(idx);
+                gen_rules.b2(j,i) = subnet.b{2}(j);
             end
         end
 end
