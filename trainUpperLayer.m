@@ -2,7 +2,6 @@ function upper_layer = trainUpperLayer(lowernn,features,labels,param)
 	num_category = size(labels,2);
 	num_epochs = param.num_epochs;
 	batch_size = param.batch_size;
-	best = 0;
 	lambda = param.lambda;
 	alpha = param.alpha;
 
@@ -10,7 +9,7 @@ function upper_layer = trainUpperLayer(lowernn,features,labels,param)
         forward_train_feature = forwardFeat(lowernn,features);
         
 	%initialization
-	upper_layer = nnsetup([lowernn.size(end),num_category]);
+	upper_layer = nnSetup([lowernn.size(end),num_category]);
         upper_layer.lambda = lambda;
         upper_layer.alpha = alpha;
         opts.num_epochs = num_epochs;
